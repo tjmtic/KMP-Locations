@@ -2,7 +2,7 @@ package com.abyxcz.viewpoint.location
 
 import kotlinx.coroutines.flow.StateFlow
 
-data class Coordinate(val latitude: Double, val longitude: Double)
+
 
 interface LocationManager {
     val currentLocation: StateFlow<Coordinate?>
