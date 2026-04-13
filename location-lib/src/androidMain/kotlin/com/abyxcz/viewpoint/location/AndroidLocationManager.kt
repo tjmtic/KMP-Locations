@@ -12,8 +12,11 @@ import android.os.Bundle
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import android.location.LocationManager as AndroidLocationManager
+import com.abyxcz.viewpoint.location.Coordinate
 
-class AndroidLocationManager(private val context: Context) : LocationManager, LocationListener, SensorEventListener {
+class AndroidLocationManager(
+    private val context: Context
+) : LocationManager, LocationListener, SensorEventListener {
 
     private val locationManager = context.getSystemService(Context.LOCATION_SERVICE) as AndroidLocationManager
     private val sensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
