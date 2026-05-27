@@ -21,7 +21,9 @@ kotlin {
     iosX64()
     iosArm64()
     iosSimulatorArm64()
+    jvm()
     
+    watchosArm32()
     watchosArm64()
     watchosSimulatorArm64()
     
@@ -39,7 +41,7 @@ kotlin {
         
         listOf(
             "iosX64", "iosArm64", "iosSimulatorArm64",
-            "watchosArm64", "watchosSimulatorArm64"
+            "watchosArm32", "watchosArm64", "watchosSimulatorArm64"
         ).forEach { targetName ->
             maybeCreate("${targetName}Main").dependsOn(appleMain)
         }
