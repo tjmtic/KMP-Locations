@@ -58,4 +58,27 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
 }
+
+publishing {
+    publications {
+        // Kotlin Multiplatform plugin automatically creates publications for targets.
+    }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/tjmtic/KMP-Locations")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR") ?: System.getenv("GPR_USER") ?: project.findProperty("gpr.user") as String? ?: ""
+                password = System.getenv("GITHUB_TOKEN") ?: System.getenv("GPR_KEY") ?: project.findProperty("gpr.key") as String? ?: ""
+            }
+        }
+    }
+}
+
