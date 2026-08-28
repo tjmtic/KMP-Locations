@@ -8,7 +8,8 @@ plugins {
 }
 
 group = "com.abyxcz.viewpoint.location"
-version = "1.0.0"
+// Tag-driven: CI passes -PlibVersion from the vX.Y.Z tag; default is the current release.
+version = (project.findProperty("libVersion") as String?) ?: "1.0.0"
 
 kotlin {
     androidTarget {
